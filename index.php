@@ -8,10 +8,10 @@
 
   if(isset($_POST[name])){
     if($mysqli_query("SELECT * FROM users WHERE email=$mail AND password=$pwd")){
-      echo "Login validated"
+      echo "Login validated";
     }
     else{
-      echo "Login unsuccessful"
+      echo "Login unsuccessful";
     }
   }
 ?>
