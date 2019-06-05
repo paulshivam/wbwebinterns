@@ -2,51 +2,26 @@
   include '../config/db.php';
   include '../config/session.php';
   include '../lib/functions.php';
-  if (isset($_POST['username'])){
-    $username=$_POST['username'];
-    $pwd=$_POST['password'];
-    $found=0;
-    if($query=mysqli_query("SELECT * FROM users WHERE username='$username' AND password='$pwd'"))
-      while($row=$mysqli_fetch_array($query))
-        $found = 1;
 
-    if ($found == 1){
-      echo "Login Successful";
-    }
-    else{
-      echo "Login Unsuccessful";
-    }
+  if (isset($_GET['msg'])) {
+    $msg=$_GET['msg'];
+  } else {
+    $msg='';
   }
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>qwerty</title>
+    <title>Welcome to WB WEB Code Lab</title>
   </head>
-  <style>
-    .login{
-      border: 2px solid blue;
-      width: 300px;
-      height: 150px;
-      padding-top: 20px;
-      padding-left: 20px;
-      background: #398;
-      margin:auto;s
-
-    }
-
-  </style>
   <body>
-    <div class="login">
-      <form method="post">
-        USERNAME: <input type="text" name="username" placeholder="Enter username"><br><br>
-        PASSWORD: <input type="password" name="password" placeholder="Enter password"><br><br>
-        <center><button type="submit" name="button" style="background: white;">Log In</button></center>
-      </form>
-    </div>
-
+    <h1><?php echo $msg; ?></h1>
+    <button type="button" name="button" onclick="location.href='register.php'">Register</button>
+    <button type="button" name="button" onclick="location.href='login.php'">Login</button>
 
   </body>
 </html>
