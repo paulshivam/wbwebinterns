@@ -30,7 +30,4 @@ Week 1 :
     a) Add Client Level securities in HTML Code of Login and Register
     b) Add Server Level securities in php code of Respective Pages
     c) use php password hash function to verify userid
-    d)
 
-
-  Day 3 :
