@@ -1,16 +1,38 @@
 <?php
+//packages to include
   include '../config/db.php';
   include '../config/session.php';
   include '../lib/functions.php';
+
+//check session
+if (isset($_SESSION['id'])) {
+  header("Location: index.php?msg=User%20already%20logged%20in");
+}
+
+//global data member
+  $msg = 0;
+
+
+//to handle post request for user register
   if (isset($_POST['submit']) and $_POST['submit']=='register'){
     $username=$_POST['username'];
-    $pwd=$_POST['password'];
+    $password=$_POST['password'];
 
-    if($query=mysqli_query("INSERT INTO users (username,password) VALUES('$username','$password')")){
-      header("Location login.php?msg=succesful");
-    } else {
-      header("Location register.php?msg=notsuccesful");
+    $found=0;
+    if ($query = mysqli_query($mysqli,"SELECT * from users WHERE username = '$username'")) {
+      while ($row=mysqli_fetch_array($query)) {
+        $found = 1;
+        $msg = 'User already exists';
+      }
     }
+    if (!$found) {
+      if($query=mysqli_query($mysqli,"INSERT INTO users (username,password) VALUES('$username','$password')")){
+        header("Location: index.php?msg=successful");
+      } else {
+        header("Location: register.php?msg=notsuccessful");
+      }
+    }
+
 
   }
 ?>
@@ -40,10 +62,17 @@
         USERNAME: <input type="text" name="username" placeholder="Enter username"><br><br>
         PASSWORD: <input type="password" name="password" placeholder="Enter password"><br><br>
         <center><button type="submit" name="submit" value="register" style="background: white;">Register</button></center>
-        <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) history.go(-1); ">Go Back</button>
+        <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; ">Return</button>
       </form>
     </div>
 
 
   </body>
+  <script type="text/javascript">
+    <?php
+    if ($msg) {
+      echo 'alert("'.$msg.'")';
+    }
+     ?>
+  </script>
 </html>
