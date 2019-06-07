@@ -38,7 +38,7 @@ Week 1 :
   Day 3 : Focused on PHP procedural CRUD, jQuery Ajax functionalities
 
     To do
-    IMP: add csscdn before </head> and js cdn before </body> 
+    IMP: add css cdn before </head> and js cdn before </body> 
     a) advanced crud with help of ajax jquery (delete, data refresh without page reload)
     b) modal system with ajax based data editing
     c) auto close poping notification
