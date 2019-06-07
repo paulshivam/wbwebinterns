@@ -42,19 +42,22 @@ if (isset($_POST['submit']) and $_POST['submit']=='register'){
     <head>
       <meta charset="utf-8">
       <title>Register</title>
+      <?php include"../config/csscdn.php" ?>
     </head>
     <body>
 
-<form method="post">
-
+   <form method="post">
 
      Username: <input type="text" name="username" value=""> <br> <br>
      Password: <input type="password" name="password" value=""> <br> <br>
      <button type="submit" name="submit" value="register">Register</button> &nbsp;&nbsp;&nbsp;&nbsp;
      <button type="button" name="button" onclick="javascript: if(confirm('Are you sure?')) location.href='index.php'">Return</button>
-    </body>
 
-</form>
+   </form>
+   <?php include '../config/jscdn.php' ?>
+   
+</body>
+
     <script type="text/javascript">
     <?php if($msg){
       echo 'alert("'.$msg.'")';

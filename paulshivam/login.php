@@ -51,6 +51,7 @@
   			margin: 50px auto;
   		}
   	</style>
+    <?php include"../config/csscdn.php" ?>
   </head>
   <body>
 
@@ -60,6 +61,7 @@
   		Password: <input type="password" name="password" placeholder="a1b2c3d4">
   		<br>
       <button type="submit" name="submit" value="login">Submit</button>
+      <?php include '../config/jscdn.php' ?>
   </body>
 
 </html>
