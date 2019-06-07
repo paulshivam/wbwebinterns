@@ -10,8 +10,8 @@ Week 1 :
     a) Fork this Project
     b) Install Git Desktop and Atom
     c) Clone the project in your system
-    b) Rename folder with name "gitusername" with your own git username
-    c) Update your code in login.php and register.php (using username and password)
+    d) Rename folder with name "gitusername" with your own git username
+    e) Update your code in login.php and register.php (using username and password)
 
     Things To Know
     a) Database Connection : present in config/db.php
@@ -42,5 +42,7 @@ Week 1 :
     b) modal system with ajax based data editing
     c) auto close poping notification
     d) jquery based web connection and page data handling - offline js
+    e) create a page users.php to show all USERS
+    f) remove .php extension
 
   Day 4 : Focused on Bootstrap, Font Awesome, Fancybox, WOW Animation, Animate CSS, CoolHue, Different Fonts
