@@ -43,4 +43,4 @@ Week 1 :
     c) auto close poping notification
     d) jquery based web connection and page data handling - offline js
 
-  Day 4 : Focused on Bootstrap, Font Awesome, Fancybox, WOW Animation, Animate CSS, Different Fonts
+  Day 4 : Focused on Bootstrap, Font Awesome, Fancybox, WOW Animation, Animate CSS, CoolHue, Different Fonts
