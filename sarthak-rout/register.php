@@ -44,6 +44,8 @@ if (isset($_SESSION['id'])) {
   <head>
     <meta charset="utf-8">
     <title>qwerty</title>
+    <?php include '../config/csscdn.php';?>
+
   </head>
   <style>
     .login{
@@ -67,8 +69,7 @@ if (isset($_SESSION['id'])) {
         <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; ">Return</button>
       </form>
     </div>
-
-
+    <?php include '../config/jscdn.php'; ?>
   </body>
   <script type="text/javascript">
     <?php

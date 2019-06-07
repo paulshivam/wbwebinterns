@@ -17,6 +17,7 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome to WB WEB Code Lab</title>
+    <?php include '../config/csscdn.php';?>
   </head>
   <body>
     <h1><?php echo $msg; ?></h1>
@@ -27,11 +28,9 @@
     <?php } else { ?>
     <button type="button" name="button" onclick="location.href='register.php'">Register</button>
     <button type="button" name="button" onclick="location.href='login.php'">Login</button>
-    <button type="button" name="button" onclick="location.href='result.php'">Display Table</button>
+    <button type="button" name="button" onclick="location.href='users.php'">Display Table</button>
 
     <?php } ?>
-
-
-
+    <?php include '../config/jscdn.php'; ?>
   </body>
 </html>

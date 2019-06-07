@@ -39,6 +39,7 @@
   <head>
     <meta charset="utf-8">
     <title>qwerty</title>
+    <?php include '../config/csscdn.php';?>
   </head>
   <style>
     .login{
@@ -63,5 +64,7 @@
 
       </form>
     </div>
+    <?php include '../config/jscdn.php'; ?>
+
   </body>
 </html>

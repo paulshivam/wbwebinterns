@@ -13,6 +13,8 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta charset="utf-8">
     <title>DATABASE</title>
+    <?php include '../config/csscdn.php';?>
+
   </head>
 
   <body>
@@ -47,6 +49,7 @@
       </tfoot>
     </table>
     <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; ">Go Back</button>
+    <?php include '../config/jscdn.php'; ?>
 
   </body>
 </html>
