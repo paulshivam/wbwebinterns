@@ -20,18 +20,18 @@
     $found=0;$iderror='Invalid Id';
     if($query=mysqli_query($mysqli,"SELECT * FROM users WHERE username='$username'"))
       while($row=mysqli_fetch_array($query)){
-        $iderror=0;
-        if ($password != $row['password']) {
-          $passerror='Invalid Password';
-        } else {
-          //code to do any job on succesful login
-
+        //code to do any job on succesful login
+        if (password_verify($password,$row['password'])) {
           $_SESSION['id']=$row['id'];
           $_SESSION['username']=$row['username'];
           header("Location: index.php?msg=Login%20Successful");
+        } else {
+          //code to do any job on unsuccesful login
+          $passerror='Invalid Password';
         }
       }
-  }
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +63,5 @@
 
       </form>
     </div>
-
-
   </body>
 </html>

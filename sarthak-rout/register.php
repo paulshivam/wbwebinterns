@@ -17,6 +17,8 @@ if (isset($_SESSION['id'])) {
   if (isset($_POST['submit']) and $_POST['submit']=='register'){
     $username=$_POST['username'];
     $password=$_POST['password'];
+    $password=password_hash($password,PASSWORD_DEFAULT);
+
 
     $found=0;
     if ($query = mysqli_query($mysqli,"SELECT * from users WHERE username = '$username'")) {

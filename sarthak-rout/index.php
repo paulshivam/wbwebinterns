@@ -27,6 +27,8 @@
     <?php } else { ?>
     <button type="button" name="button" onclick="location.href='register.php'">Register</button>
     <button type="button" name="button" onclick="location.href='login.php'">Login</button>
+    <button type="button" name="button" onclick="location.href='result.php'">Display Table</button>
+
     <?php } ?>
 
 
