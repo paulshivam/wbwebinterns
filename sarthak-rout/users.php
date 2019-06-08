@@ -17,7 +17,7 @@
 
   </head>
 
-  <body>
+  <body id="body">
     <table border="1">
       <thead>
         <th>ID</th>
@@ -25,7 +25,7 @@
         <th>PASSWORD</th>
         <th>ACTION</th>
       </thead>
-      <tbody>
+      <tbody id="users-list">
         <?php
           if ($query=mysqli_query($mysqli,"SELECT * FROM users")) {
             while ($row=mysqli_fetch_array($query)) {
@@ -33,9 +33,7 @@
                   <td>'.$row['id'].'</td>
                   <td>'.$row['username'].'</td>
                   <td>'.$row['password'].'</td>
-                  <td align="center"><i onclick="remove('.$row['id'].')" class="fa fa-times-circle" aria-hidden="true" style="color:red"></i>&nbsp;&nbsp;<i class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i>
-
-</td>
+                  <td align="center"><i onclick="javascript: remove('.$row['id'].');" class="fa fa-times-circle" aria-hidden="true" style="color:red"></i>&nbsp;&nbsp;<i class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i></td>
                 </tr>';
             }
           }
@@ -50,6 +48,49 @@
     </table>
     <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; ">Go Back</button>
     <?php include '../config/jscdn.php'; ?>
+    <script>
+      function remove(id){
+        if(confirm("Do you really want to remove the user - " + id))
+          delete_id(id);
+      }
+
+      function delete_id(id) {
+        $.ajax({
+          url: 'action.php',
+          type: 'GET',
+          data: {
+            action: 'delete',
+            id: id
+          },
+          datatype: 'html',
+          success: function(response){
+            if (response == 1) {
+              refresh_users();
+              notify(id,'Deleted Successfully')
+
+            }
+          }
+        });
+      }
+
+      function refresh_users() {
+        $("#body").hide();
+        $("#users-list").empty().delay(1500);
+        $.ajax({
+          url: "list.php",
+          type: 'GET',
+          data:{
+            getlist: 'users'
+          },
+          datatype: 'html',
+          success: function(response){
+            $("#users-list").html(response);
+            $("#body").slideDown(3000);
+
+          }
+        });
+      }
+    </script>
 
   </body>
 </html>
