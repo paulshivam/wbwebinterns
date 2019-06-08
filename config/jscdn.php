@@ -23,7 +23,6 @@
 
   function notify(title,text,type) {
     swal(title, text, type);
-      };
   }
 
   function prompt(title,text,placeholder) {
