@@ -18,7 +18,7 @@
     else if (strpos($_GET['msg'], "Success") !== false) $modaltype="success";
     else $modaltype="info!";
 
-    echo 'notify(' ','.$_GET['msg'].','.$modaltype.')';
+    echo "notify(' ','.$_GET['msg'].','.$modaltype.')";
   } ?>
 
   function notify(title,text,type) {
