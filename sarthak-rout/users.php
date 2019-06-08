@@ -18,7 +18,7 @@
   </head>
 
   <body id="body">
-    <table border="1">
+    <table class="table table-responsive">
       <thead>
         <th>ID</th>
         <th>USERNAME</th>
@@ -33,7 +33,9 @@
                   <td>'.$row['id'].'</td>
                   <td>'.$row['username'].'</td>
                   <td>'.$row['password'].'</td>
-                  <td align="center"><i onclick="javascript: remove('.$row['id'].');" class="fa fa-times-circle" aria-hidden="true" style="color:red"></i>&nbsp;&nbsp;<i class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i></td>
+                  <td align="center">
+                  <i onclick="javascript: remove('.$row['id'].');" class="fa fa-times-circle" aria-hidden="true" style="color:red"></i>&nbsp;&nbsp;
+                  <i onclick="javascript: edit('.$row['id'].');" class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i></td>
                 </tr>';
             }
           }
@@ -66,7 +68,7 @@
           success: function(response){
             if (response == 1) {
               refresh_users();
-              notify(id,'Deleted Successfully')
+              notify(id,'Deleted Successfully', 'success');
 
             }
           }
@@ -86,11 +88,37 @@
           success: function(response){
             $("#users-list").html(response);
             $("#body").slideDown(3000);
-
           }
         });
       }
+
+    function edit (id){
+        $("#editModalbody").empty();
+        $.ajax({
+          url: "modal.php",
+          type: 'GET',
+          data:{
+            id: id,
+            action: 'edit'
+          },
+          datatype: 'html',
+          success: function(response){
+            $("#editModalbody").html(response);
+          }
+        });
+
+        $("#editModal").modal("show");
+      };
     </script>
 
   </body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" id="editModalbody">
+
+      </div>
+    </div>
+  </div>
 </html>
