@@ -15,6 +15,9 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <?php include"../config/csscdn.php" ?>
   </head>
+
+
+
   <body>
 
       <table border="1">
@@ -24,7 +27,7 @@
           <th>Password</th>
           <th>Action</th>7
         </thead>
-        <tbody>
+        <tbody id="users-list">
 
             <?php
 
@@ -34,7 +37,7 @@
                     echo '<td>'.$row['id'].'</td>';
                     echo '<td>'.$row['username'].'</td>';
                     echo '<td>'.$row['password'].'</td>';
-                    echo '<td align="center"><i class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i>&nbsp;<i class="fa fa-times" aria-hidden="true" style="color:red"></i></td>';
+                    echo '<td align="center"><i class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i>&nbsp;<i onclick="javascript: remove('.$row['id'].');" class="fa fa-times" aria-hidden="true" style="color:red" ></i></td>';
                     echo "</tr>";
 
                   }
@@ -50,6 +53,48 @@
 
       </table>
       <?php include '../config/jscdn.php' ?>
+      <script>
+        function remove(id) {
+          if(confirm("Do you really want to remove " + id + "?"))
+            delete_id(id);
+        }
+
+          function delete_id(id) {
+            $.ajax({
+              url: 'action.php',
+              type: 'GET',
+              data: {
+                action: 'delete',
+                id: id
+              },
+              datatype: 'html',
+              success: function(response) {
+                if(response==1) {
+                  refresh_users();
+                  notify(id,'Deleted successfully');
+                }
+              }
+          });
+          }
+
+          function refresh_users() {
+            $("body").hide();
+            $("#users-list").empty();
+            $.ajax({
+              url: 'list.php',
+              type: 'GET',
+              data: {
+                getlist: 'users'
+              },
+              datatype:   'html',
+              success: function(response) {
+                $("#users-list").html(response);
+                $("body").show();
+              }
+            });
+          }
+
+      </script>
   </body>
 
 </html>
