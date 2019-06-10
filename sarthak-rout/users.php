@@ -18,8 +18,8 @@
   </head>
 
   <body id="body">
-    <table class="table table-responsive">
-      <thead>
+    <table class="table table-responsive table-striped">
+      <thead class="thead-dark">
         <th>ID</th>
         <th>USERNAME</th>
         <th>PASSWORD</th>
@@ -41,14 +41,14 @@
           }
          ?>
       </tbody>
-      <tfoot>
+      <tfoot class="thead-dark">
         <th>ID</th>
         <th>USERNAME</th>
         <th>PASSWORD</th>
         <th>ACTION</th>
       </tfoot>
     </table>
-    <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; ">Go Back</button>
+    <button type="button" class="btn btn-info" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; " style="margin-left: 758px;">Go Back</button>
     <?php include '../config/jscdn.php'; ?>
     <script>
       function remove(id){
@@ -115,7 +115,7 @@
 
   <!-- Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content" id="editModalbody">
 
       </div>
