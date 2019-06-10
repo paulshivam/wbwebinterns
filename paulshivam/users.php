@@ -37,7 +37,10 @@
                     echo '<td>'.$row['id'].'</td>';
                     echo '<td>'.$row['username'].'</td>';
                     echo '<td>'.$row['password'].'</td>';
-                    echo '<td align="center"><i class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i>&nbsp;<i onclick="javascript: remove('.$row['id'].');" class="fa fa-times" aria-hidden="true" style="color:red" ></i></td>';
+                    echo '<td align="center">
+                    <i onclick="javascript: edit('.$row['id'].');" class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i>&nbsp;
+                    <i onclick="javascript: remove('.$row['id'].');" class="fa fa-times" aria-hidden="true" style="color:red" ></i>
+                    </td>';
                     echo "</tr>";
 
                   }
@@ -94,7 +97,34 @@
             });
           }
 
+          function edit(id) {
+            $("#editModalbody").empty();
+            $.ajax({
+              url: "modal.php",
+              type: 'get',
+              data: {
+                id: id;
+                action: 'edit'
+              },
+              datatype: 'html',
+              success: function(response){
+                $("#editModalbody").html(response);
+              }
+            });
+
+            $("editModal").modal("show");
+          };
+
       </script>
   </body>
+
+  <!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" id="editModalbody">
+
+    </div>
+  </div>
+</div>
 
 </html>
