@@ -43,30 +43,40 @@ if (isset($_SESSION['id'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>qwerty</title>
+    <title>Register here</title>
     <?php include '../config/csscdn.php';?>
 
   </head>
   <style>
     .login{
-      border: 2px solid blue;
+      border: 1px solid blue;
+      border-radius: 10px;
       width: 300px;
-      height: 150px;
+      height: 350px;
+      margin: 80px auto;
       padding-top: 20px;
       padding-left: 20px;
-      background: #398;
-      margin:auto;s
-
+      background-color: #F79A86;
+      /* margin: auto; */
     }
+     body{
+       background-image: linear-gradient( #ABDCFF , #0396FF );
+     }
 
   </style>
   <body>
     <div class="login">
       <form method="post">
-        USERNAME: <input type="text" name="username" placeholder="Enter username"><br><br>
-        PASSWORD: <input type="password" name="password" placeholder="Enter password"><br><br>
-        <center><button type="submit" name="submit" value="register" style="background: white;">Register</button></center>
-        <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php'; ">Return</button>
+        <div class="form-group">
+          USERNAME: <input type="text" name="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+          PASSWORD: <input type="password" name="password" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+          <button type="submit" name="submit" value="register" style="background: white;" class="">Register</button>
+          <button type="button" name="button" onclick="javascript: if(confirm('Are you sure')) location.href='index.php';" class="btn-info">Return</button>
+        </div>
       </form>
     </div>
     <?php include '../config/jscdn.php'; ?>

@@ -13,6 +13,11 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta charset="utf-8">
     <title>DATABASE</title>
+    <style>
+      body{
+        background-image: linear-gradient( 135deg, #FFF5C3 10%, #9452A5 100%);
+      }
+    </style>
     <?php include '../config/csscdn.php';?>
 
   </head>
