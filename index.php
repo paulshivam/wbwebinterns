@@ -236,16 +236,15 @@
             <h1>Welcome to portfolio of our interns!</h1><i></i>
             <h2 id="pathName"><i></i></h2>
         </div>
-        <div class="row message">
-            <!-- <p>Website <span id="website" style="word-break:break-all;"></span> has been successfully installed on server! Please delete the file <span style="font-weight: bold;">default.php</span> from the public_html folder and then upload your website by using FTP or File Manager.</p> -->
+        <div class="row message text-center">
+          <ul>
+            <li> <a href="sarthak-rout">Sarthak Rout - Batch 1 - LAMP Stack Trainee</a>  </li>
+            <li> <a href="shivam-paul">Shivam Paul - Batch 1 - LAMP Stack Trainee</a>  </li>
+          </ul>
         </div>
-        <div class="col-xs-12">
-            <h2>What's next?</h2>
-        </div>
-        <ul>
-          <li> <a href="sarthak-rout"></a> Sarthak Rout - Batch 1 - LAMP Stack Trainee </li>
-          <li> <a href="shivam-paul"></a> Shivam Paul - Batch 1 - LAMP Stack Trainee </li>
-        </ul>
+        <br>
+
+
 
         <div class="footer">
             <div class="row">
