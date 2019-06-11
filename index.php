@@ -67,7 +67,7 @@
             transition: all .3s ease-in-out;
         }
         li a {
-            color: white;
+            color: black;
             margin-left: 3px;
         }
         li > i {
