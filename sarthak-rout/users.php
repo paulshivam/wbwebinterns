@@ -34,8 +34,8 @@
                   <td>'.$row['username'].'</td>
                   <td>'.$row['password'].'</td>
                   <td align="center">
-                  <i onclick="javascript: remove('.$row['id'].');" class="fa fa-times-circle" aria-hidden="true" style="color:red"></i>&nbsp;&nbsp;
-                  <i onclick="javascript: edit('.$row['id'].');" class="fa fa-pencil-square" aria-hidden="true" style="color:orange"></i></td>
+                  <i onclick="javascript: remove('.$row['id'].');" class="fa fa-times-circle" aria-hidden="true" style="color:red;cursor:pointer;"></i>&nbsp;&nbsp;
+                  <i onclick="javascript: edit('.$row['id'].');" class="fa fa-pencil-square " aria-hidden="true" style="color:orange;cursor:pointer"></i></td>
                 </tr>';
             }
           }
